@@ -175,6 +175,8 @@ module.exports = function(grunt) {
 
     // Load in `grunt-spritesmith`
     grunt.loadNpmTasks('grunt-spritesmith');
+    grunt.loadNpmTasks('grunt-contrib-sass');
+
 
     // rename tasks
     grunt.renameTask('rsync', 'deploy');
