@@ -15,8 +15,22 @@
    General
    ========================================================================== */
 
-body { }
+body { 
+    background: $background-site-color;
+    color: $text-base;
+}
 
+.panels {
+    border-radius: 2px 2px 2px 2px;
+    -moz-border-radius: 2px 2px 2px 2px;
+    -webkit-border-radius: 2px 2px 2px 2px;
+    border: 1px solid $pannel-fill-color;
+    background: $pannel-background-color;
+    padding-top: 1%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 1%;
+}
 
 /* ==========================================================================
    Links
@@ -24,7 +38,7 @@ body { }
 
 a,
 a:visited {
-	color: $red;
+	color: $link-text-color;
 }
 a:hover {
 	color: $blue;

@@ -18,7 +18,7 @@ module.exports = function(grunt) {
             },
             images: {
                 files: ['assets/images/**/*.{png,jpg,gif}'],
-                tasks: ['imagemin']
+                //tasks: ['imagemin']
             }
         },
 
@@ -117,23 +117,6 @@ module.exports = function(grunt) {
             }
         },
 
-        // image optimization
-        imagemin: {
-            dist: {
-                options: {
-                    optimizationLevel: 7,
-                    progressive: true,
-                    interlaced: true
-                },
-                files: [{
-                    expand: true,
-                    cwd: 'assets/images/',
-                    src: ['**/*.{png,jpg,gif}'],
-                    dest: 'assets/images/'
-                }]
-            }
-        },
-
         // browserSync
         browserSync: {
             dev: {
@@ -141,7 +124,7 @@ module.exports = function(grunt) {
                     src : ['style.css', 'assets/js/*.js', 'assets/images/**/*.{png,jpg,jpeg,gif,webp,svg}']
                 },
                 options: {
-                    proxy: "local.dev",
+                    proxy: "http://localhost:8888/jr-blog/",
                     watchTask: true,
                     browser: "google chrome"
                 }
@@ -182,6 +165,6 @@ module.exports = function(grunt) {
     grunt.renameTask('rsync', 'deploy');
 
     // register task
-    grunt.registerTask('default', ['sass', 'autoprefixer', 'cssmin', 'uglify', 'imagemin', 'browserSync', 'watch']);
+    grunt.registerTask('default', ['sass', 'autoprefixer', 'cssmin', 'uglify', 'browserSync', 'watch']);
 
 };

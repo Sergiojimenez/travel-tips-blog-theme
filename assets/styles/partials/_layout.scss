@@ -3,8 +3,8 @@
    ========================================================================== */
 
 #page {
-	max-width: $pageWidth;
-	margin: 20px auto;
+	max-width: 100%;
+	margin: 0px auto;
 }
 
 .content-area {
@@ -20,10 +20,4 @@
 .site-content .widget-area {
 	float: right;
 	overflow: hidden;
-	width: 25%;
-}
-
-.site-footer {
-	clear: both;
-	width: 100%;
 }

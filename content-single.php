@@ -1,60 +1,90 @@
 <?php
 /**
- * @package _mbbasetheme
+ * @package sparkling
  */
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+	<?php the_post_thumbnail( 'sparkling-featured', array( 'class' => 'single-featured' )); ?>
+	<div class="post-inner-content">
+		<header class="entry-header page-header">
 
-		<div class="entry-meta">
-			<?php _mbbasetheme_posted_on(); ?>
-		</div><!-- .entry-meta -->
-	</header><!-- .entry-header -->
+			<h1 class="entry-title "><?php the_title(); ?></h1>
 
-	<div class="entry-content">
-		<?php the_content(); ?>
-		<?php
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', '_mbbasetheme' ),
-				'after'  => '</div>',
-			) );
-		?>
-	</div><!-- .entry-content -->
+			<div class="entry-meta">
+				<?php sparkling_posted_on(); ?>
 
-	<footer class="entry-footer">
-		<?php
-			/* translators: used between list items, there is a space after the comma */
-			$category_list = get_the_category_list( __( ', ', '_mbbasetheme' ) );
+				<?php
+					/* translators: used between list items, there is a space after the comma */
+					$categories_list = get_the_category_list( esc_html__( ', ', 'sparkling' ) );
+					if ( $categories_list && sparkling_categorized_blog() ) :
+				?>
+				<span class="cat-links"><i class="fa fa-folder-open-o"></i>
+					<?php printf( esc_html__( ' %1$s', 'sparkling' ), $categories_list ); ?>
+				</span>
+				<?php endif; // End if categories ?>
+				<?php edit_post_link( esc_html__( 'Edit', 'sparkling' ), '<i class="fa fa-pencil-square-o"></i><span class="edit-link">', '</span>' ); ?>
 
-			/* translators: used between list items, there is a space after the comma */
-			$tag_list = get_the_tag_list( '', __( ', ', '_mbbasetheme' ) );
+			</div><!-- .entry-meta -->
+		</header><!-- .entry-header -->
 
-			if ( ! _mbbasetheme_categorized_blog() ) {
-				// This blog only has 1 category so we just need to worry about tags in the meta text
-				if ( '' != $tag_list ) {
-					$meta_text = __( 'This entry was tagged %2$s. Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', '_mbbasetheme' );
-				} else {
-					$meta_text = __( 'Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', '_mbbasetheme' );
-				}
-			} else {
-				// But this blog has loads of categories so we should probably display them here
-				if ( '' != $tag_list ) {
-					$meta_text = __( 'This entry was posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', '_mbbasetheme' );
-				} else {
-					$meta_text = __( 'This entry was posted in %1$s. Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', '_mbbasetheme' );
-				}
-			} // end check for categories on this blog
+		<div class="entry-content">
+			<?php the_content(); ?>
+			<?php
+				wp_link_pages( array(
+					'before'            => '<div class="page-links">'.esc_html__( 'Pages:', 'sparkling' ),
+					'after'             => '</div>',
+					'link_before'       => '<span>',
+					'link_after'        => '</span>',
+					'pagelink'          => '%',
+					'echo'              => 1
+	       		) );
+	    	?>
+		</div><!-- .entry-content -->
 
-			printf(
-				$meta_text,
-				$category_list,
-				$tag_list,
-				get_permalink()
-			);
-		?>
+		<footer class="entry-meta">
 
-		<?php edit_post_link( __( 'Edit', '_mbbasetheme' ), '<span class="edit-link">', '</span>' ); ?>
-	</footer><!-- .entry-footer -->
+	    	<?php if(has_tag()) : ?>
+	      <!-- tags -->
+	      <div class="tagcloud">
+
+	          <?php
+	              $tags = get_the_tags(get_the_ID());
+	              foreach($tags as $tag){
+	                  echo '<a href="'.get_tag_link($tag->term_id).'">'.$tag->name.'</a> ';
+	              } ?>
+
+	      </div>
+	      <!-- end tags -->
+	      <?php endif; ?>
+
+		</footer><!-- .entry-meta -->
+	</div>
+
+	<?php if (get_the_author_meta('description')) :  ?>
+		<div class="post-inner-content secondary-content-box">
+      <!-- author bio -->
+      <div class="author-bio content-box-inner">
+
+        <!-- avatar -->
+        <div class="avatar">
+            <?php echo get_avatar(get_the_author_meta('ID') , '60'); ?>
+        </div>
+        <!-- end avatar -->
+
+        <!-- user bio -->
+        <div class="author-bio-content">
+
+          <h4 class="author-name"><a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>"><?php echo get_the_author_meta('display_name'); ?></a></h4>
+          <p class="author-description">
+              <?php echo get_the_author_meta('description'); ?>
+          </p>
+
+        </div><!-- end .author-bio-content -->
+
+      </div><!-- end .author-bio  -->
+
+		</div>
+		<?php endif; ?>
+
 </article><!-- #post-## -->

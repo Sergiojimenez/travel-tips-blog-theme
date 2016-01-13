@@ -531,16 +531,33 @@ textarea {
 /* ==========================================================================
    General
    ========================================================================== */
+body {
+  background: #F5F6F5;
+  color: #383838;
+}
+
+.panels {
+  border-radius: 2px 2px 2px 2px;
+  -moz-border-radius: 2px 2px 2px 2px;
+  -webkit-border-radius: 2px 2px 2px 2px;
+  border: 1px solid #E2E4E5;
+  background: #FFF;
+  padding-top: 1%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 1%;
+}
+
 /* ==========================================================================
    Links
    ========================================================================== */
 a,
 a:visited {
-  color: red;
+  color: #3793F4;
 }
 
 a:hover {
-  color: blue;
+  color: #2A7BD0;
 }
 
 /* ==========================================================================
@@ -671,7 +688,7 @@ address {
    Grid
    ========================================================================== */
 .grid {
-  margin: 0 0 20px 0;
+  margin: 0 0 16px 0;
 }
 .grid:before, .grid:after {
   content: " ";
@@ -685,7 +702,7 @@ address {
 
 [class*='col-'] {
   float: left;
-  padding-right: 20px;
+  padding-right: 16px;
 }
 .grid [class*='col-']:last-of-type {
   padding-right: 0;
@@ -697,6 +714,11 @@ address {
 
 .col-1-3 {
   width: 33.33%;
+}
+@media (max-width: 750px) {
+  .col-1-3 {
+    width: 100%;
+  }
 }
 
 .col-2-3 {
@@ -720,15 +742,20 @@ address {
 }
 
 .module {
-  padding: 20px;
+  padding: 16px;
 }
 
 /* Opt-in outside padding */
 .grid-pad {
-  padding: 20px 0 20px 20px;
+  padding: 16px 0 16px 16px;
 }
 .grid-pad [class*='col-']:last-of-type {
-  padding-right: 20px;
+  padding-right: 16px;
+}
+
+.col-center {
+  float: none;
+  margin: 0 auto;
 }
 
 /* ==========================================================================
@@ -738,8 +765,8 @@ address {
    Layout
    ========================================================================== */
 #page {
-  max-width: 1000px;
-  margin: 20px auto;
+  max-width: 100%;
+  margin: 0px auto;
 }
 
 .content-area {
@@ -755,20 +782,67 @@ address {
 .site-content .widget-area {
   float: right;
   overflow: hidden;
-  width: 25%;
-}
-
-.site-footer {
-  clear: both;
-  width: 100%;
 }
 
 /* ==========================================================================
    Header
    ========================================================================== */
+.site-header {
+  clear: both;
+  width: 100%;
+  background: #FFF;
+}
+.site-header-content {
+  float: none;
+  margin: 0 auto;
+}
+
+.site-branding {
+  max-width: 70%;
+  display: inline-block;
+}
+
+.site-navigation {
+  float: right;
+}
+
 /* ==========================================================================
    Footer
    ========================================================================== */
+.site-footer {
+  clear: both;
+  width: 100%;
+  padding-top: 2%;
+}
+.site-footer--principal {
+  color: #3793F4;
+  background: #FFF;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+.site-footer--principal-heading {
+  font-size: 1.2rem;
+  margin-bottom: 1%;
+  color: #000000;
+}
+.site-footer--principal ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 3%;
+}
+.site-footer--principal li {
+  margin-bottom: 3%;
+  text-decoration: none;
+}
+.site-footer--secondary {
+  color: #FFF;
+  background: #3793F4;
+}
+.site-footer-content {
+  float: none;
+  margin: 0 auto;
+}
+
 /* ==========================================================================
    Menus
    ========================================================================== */
@@ -946,6 +1020,23 @@ object {
    ========================================================================== */
 .widget {
   margin: 0 0 1.5em;
+  background: #FFF;
+  padding-top: 1%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 1%;
+  border-radius: 2px 2px 2px 2px;
+  -moz-border-radius: 2px 2px 2px 2px;
+  -webkit-border-radius: 2px 2px 2px 2px;
+  border: 1px solid #E2E4E5;
+}
+.widget-title {
+  font-size: 1.5rem;
+}
+.widget ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 3%;
 }
 
 /* Make sure select elements fit in widgets */

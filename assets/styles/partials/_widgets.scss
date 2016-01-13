@@ -4,6 +4,23 @@
 
 .widget {
 	margin: 0 0 1.5em;
+    background: $white;
+    padding-top: 1%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 1%;
+    border-radius: 2px 2px 2px 2px;
+    -moz-border-radius: 2px 2px 2px 2px;
+    -webkit-border-radius: 2px 2px 2px 2px;
+    border: 1px solid $gray;
+    &-title {
+        font-size: 1.5rem;
+    }
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin-bottom: 3%;
+    }
 }
 
 /* Make sure select elements fit in widgets */

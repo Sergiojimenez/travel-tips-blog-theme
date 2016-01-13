@@ -6,11 +6,37 @@
 // @include fontface('FONT_NAME', 'assets/fonts/', 'FONT_FAMILY');
 
 // Structure
-$pageWidth: 1000px;
+$pageWidth: 900px;
 
 // Text Selection
 $selectionColor: orange;
 
 // Colors
-$red: red;
-$blue: blue;
+$red: #F43755;
+$red-darker: #BD2E45;
+
+$blue: #2A7BD0;
+$blue-lighter: #3793F4;
+
+$green: #148064;
+$green-lighter: #179776;
+
+$white: #FFF;
+$black: #000000;
+
+$gray: #E2E4E5;
+$gray-lightest: #F5F6F5;
+
+$text-base: #383838;
+
+// Site colors
+$link-text-color: $blue-lighter;
+$background-site-color: $gray-lightest;
+
+$btn-primary-color: $red;
+$btn-fill-primary-color:$red-darker;
+
+$tip-color:$green-lighter;
+
+$pannel-background-color: $white;
+$pannel-fill-color: $gray;
